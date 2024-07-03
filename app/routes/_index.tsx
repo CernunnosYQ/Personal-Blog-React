@@ -9,6 +9,12 @@ import BlogSection from "~/components/BlogSection";
 import Footer from "~/components/Footer";
 import { getFeaturedProjects, TProjectShow } from "~/common/projects";
 import { useLoaderData } from "@remix-run/react";
+import { getLastsPosts, TBlogPost } from "~/common/blogposts";
+
+type TLoaderData = {
+  projects: TProjectShow[],
+  blogposts: TBlogPost[]
+}
 
 
 export const meta: MetaFunction = () => {
@@ -21,24 +27,28 @@ export const meta: MetaFunction = () => {
 
 export const loader: LoaderFunction = async () => {
   const projects: TProjectShow[] = await getFeaturedProjects(3)
+  const blogposts: TBlogPost[] = await getLastsPosts(3)
 
-  return json(projects)
+  return json({ projects, blogposts })
 }
 
 
 export default function Index() {
-  const projects = useLoaderData<TProjectShow[]>()
+  const { projects, blogposts } = useLoaderData<TLoaderData>()
 
   return (
     <div className={styles.main}>
       <Navigation />
       <div className={styles.wrapper}>
         <AboutSection />
+        <BlogSection blogposts={blogposts.map(blogpost => ({
+          ...blogpost,
+          created_at: new Date(blogpost.created_at)
+        }))} />
         <ProjectsSection projects={projects.map(project => ({
           ...project,
           last_update: new Date(project.last_update)
         }))} />
-        <BlogSection blogposts={[]} />
       </div>
       <Footer />
     </div>

@@ -27,13 +27,13 @@ export default function ProjectsSection(props: TProjectSectionProps) {
 
 const styles = {
   wrapper:
-    "h-screen w-5/6 m-auto  flex flex-col items-center ",
+    "w-5/6 m-auto mb-12 flex flex-col items-center  ",
   list:
-    "flex flex-col gap-20 ",
+    "flex flex-col gap-16 ",
   title:
     "text-2xl text-center font-bold text-stone-400 ",
   separator:
     "border-stone-600 w-1/3 mx-auto mt-2 mb-8 ",
   button:
-    "inline-block mt-12 py-2 w-1/3 bg-cherokee-400/70 font-medium text-center rounded-md cursor-pointer hover:scale-105 transition-all duration-200 "
+    "inline-block mt-12 py-2 w-1/3 bg-cherokee-400/85 font-medium text-center rounded-md cursor-pointer hover:scale-105 transition-all duration-200 "
 }
