@@ -4,6 +4,25 @@ export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      keyframes: {
+        floating: {
+          '0%, 100%': {
+            transform: 'translateY(12px)',
+            animation_timing_function: 'cubic-bezier(0.8, 0, 1, 1)'
+          },
+          '50%': {
+            transform: 'translateY(0)',
+            animation_timing_function: 'cubic-bezier(0, 0, 0.2, 1)'
+          }
+        },
+        typing: {
+          from: { backgroundSize: '0 200%' },
+        },
+      },
+      animation: {
+        floating: 'floating 4s infinite',
+        typewriter: 'typing calc(var(--n)*.1s) steps(var(--n)) forwards',
+      },
       colors: {
         'cod-gray': {
           '50': '#f6f6f6',
