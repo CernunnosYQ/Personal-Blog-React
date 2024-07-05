@@ -9,7 +9,6 @@ export default function ProjectFeatured(props: TProjectShow & { odd: boolean }) 
   )
 
   return (
-
     <div className={styles.featured + (props.odd ? styles.featured_odd : "")}>
       <div className={styles.content}>
         <p className={styles.sup}>Ejemplo de proyecto</p>

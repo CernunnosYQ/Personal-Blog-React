@@ -3,6 +3,7 @@ import { Link } from "@remix-run/react"
 
 import type { TProjectShow } from "~/common/projects"
 import ProjectFeatured from "~/components/ProjectFeatured"
+import Project from "~/components/Project"
 
 
 type TProjectSectionProps = {
@@ -12,13 +13,17 @@ type TProjectSectionProps = {
 
 export default function ProjectsSection(props: TProjectSectionProps) {
   const projects = props.projects.map((project, index) => <ProjectFeatured key={index} odd={index % 2 === 1} {...project} />)
+  const projectsAlt = props.projects.map((project, index) => <Project key={index} {...project} />)
 
   return (
     <section id="projects" className={styles.wrapper}>
       <h2 className={styles.title}>Mis proyectos</h2>
       <hr className={styles.separator} />
-      <div className={styles.list}>
+      {/* <div className={styles.list}>
         {projects}
+      </div> */}
+      <div className={styles.list_alt}>
+        {projectsAlt}
       </div>
       <Link to="/projects" className={styles.button}>Ver más</Link>
     </section>
@@ -30,6 +35,8 @@ const styles = {
     "w-5/6 m-auto mb-12 flex flex-col items-center  ",
   list:
     "flex flex-col gap-16 ",
+  list_alt:
+    "flex items-center space-x-6 -mx-4",
   title:
     "text-2xl text-center font-bold text-stone-400 ",
   separator:
