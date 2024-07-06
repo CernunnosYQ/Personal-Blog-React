@@ -19,9 +19,9 @@ export default function ProjectsSection(props: TProjectSectionProps) {
     <section id="projects" className={styles.wrapper}>
       <h2 className={styles.title}>Mis proyectos</h2>
       <hr className={styles.separator} />
-      {/* <div className={styles.list}>
+      <div className={styles.list}>
         {projects}
-      </div> */}
+      </div>
       <div className={styles.list_alt}>
         {projectsAlt}
       </div>

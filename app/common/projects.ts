@@ -199,7 +199,10 @@ export const getAllProjects = async (): Promise<TProjectShow[]> => {
     const success = true
 
     if (success) {
-      resolve(projects)
+      resolve(projects.map(project => ({
+        ...project,
+        last_update: project.last_update.toISOString(), // Convert Date to ISO string
+      })))
     } else {
       reject([])
     }
