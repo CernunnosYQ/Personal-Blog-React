@@ -35,7 +35,7 @@ export default function ProjectFeatured(props: TProjectShow & { odd: boolean }) 
 const styles = {
   featured: "flex gap-8 hover:scale-105 transition-all duration-200 ",
   featured_odd: "text-right flex-row-reverse ",
-  content: "w-1/2 my-auto -mx-4 ",
+  content: "w-1/2 my-auto ",
   sup: "text-xs font-medium dark:text-teal-500 px-2 ",
   title: "font-bold text-3xl mb-4 px-2  text-cherokee-600 ",
   description: "relative bg-taupe-900/25 text-stone-300 px-4 py-2 rounded-md mb-4 z-20 backdrop-blur-sm ",

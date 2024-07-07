@@ -6,6 +6,8 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./tailwind.css";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 
 export const links = () => {
@@ -27,8 +29,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-[#181614]">
-        {children}
+      <body className="bg-[#181614] max-w-screen overflow-x-hidden">
+        <main className="bg-gradient-to-bl from-taupe-950 to-cod-gray-950 min-h-screen mx-auto ">
+          <Navigation />
+          {children}
+          <Footer />
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>

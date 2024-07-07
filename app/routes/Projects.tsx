@@ -2,8 +2,6 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 
-import Navigation from "~/components/Navigation";
-import Footer from "~/components/Footer";
 import { getAllProjects, TProjectShow } from "~/common/projects";
 import { useLoaderData } from "@remix-run/react";
 import ProjectFeatured from "~/components/ProjectFeatured";
@@ -50,20 +48,15 @@ export default function Projects() {
   const other_projects = other.map((project, index) => <Project key={index} {...project} />)
 
   return (
-    <div className={styles.main}>
-      <Navigation />
-      <div className="h-20"></div>
-      <div className={styles.wrapper}>
-        <h1 className={styles.title}>Mis Proyectos</h1>
-        <hr className={styles.separator} />
-        <div className={styles.list_featured}>
-          {featured_projects}
-        </div>
-        <div className={styles.list_other}>
-          {other_projects}
-        </div>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>Mis Proyectos</h1>
+      <hr className={styles.separator} />
+      <div className={styles.list_featured}>
+        {featured_projects}
       </div>
-      <Footer />
+      <div className={styles.list_other}>
+        {other_projects}
+      </div>
     </div>
   );
 }
@@ -75,11 +68,11 @@ const styles = {
   wrapper:
     "max-w-3xl xl:max-w-5xl m-auto",
   title:
-    "mt-8 text-5xl font-semibold text-stone-400 mb-4 ",
+    "leading-normal text-5xl font-semibold text-stone-400 mb-2 ",
   separator:
-    "border-stone-600 -mx-4 mb-4 ",
+    "border-stone-600 mb-4 ",
   list_featured:
-    "flex flex-col gap-16 py-8",
+    "flex flex-col gap-12 py-8",
   list_other:
-    "grid grid-cols-3 gap-6 -mx-4 py-8 mb-8",
+    "flex flex-wrap justify-center gap-6 -mx-4 py-8 ",
 }

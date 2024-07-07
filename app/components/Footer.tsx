@@ -1,7 +1,6 @@
 const styles = {
   footer:
-    "text-center py-6 "
-    + "bg-cod-gray-950/50 ",
+    "text-center py-8 ",
   socials:
     "p-2 flex justify-center gap-4 text-2xl ",
   icon:

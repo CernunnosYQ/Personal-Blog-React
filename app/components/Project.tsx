@@ -55,7 +55,7 @@ export default function Project(props: TProjectShow) {
 
 const styles = {
   project:
-    "bg-taupe-900/25 text-stone-200 rounded-2xl overflow-hidden text-center ",
+    "bg-taupe-900/25 text-stone-200 rounded-2xl overflow-hidden text-center max-w-[20rem] ",
   figure:
     " ",
   content:
