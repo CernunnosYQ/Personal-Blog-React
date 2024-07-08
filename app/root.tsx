@@ -4,10 +4,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
+  isRouteErrorResponse
 } from "@remix-run/react";
 import "./tailwind.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import ErrorPage404 from "./pages/ErrorPage404";
 
 
 export const links = () => {
@@ -19,6 +22,37 @@ export const links = () => {
   ]
 }
 
+export function ErrorBoundary() {
+  const error = useRouteError()
+
+  if (isRouteErrorResponse(error)) {
+    switch (error.status) {
+      case 404:
+        return <ErrorPage404 />
+
+      default:
+        return (
+          <div>
+            <h1>
+              {error.status} {error.statusText}
+            </h1>
+            <p>{error.data}</p>
+          </div>
+        )
+    }
+  } else if (error instanceof Error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+        <p>The stack trace is:</p>
+        <pre>{error.stack}</pre>
+      </div>
+    );
+  } else {
+    return <h1>Unknown Error</h1>
+  }
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
