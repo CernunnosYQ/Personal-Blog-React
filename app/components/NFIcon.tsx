@@ -18,12 +18,13 @@ const icon_classes: TIconClasses = {
     external: "nf-fa-external_link",
     github: "nf-fa-github",
     linkedin: "",
-    search: "nf-fa-search"
+    search: "nf-fa-search",
+    arrowright: "nf-fa-arrow_right_long",
 }
 
 
-export default function NFIcon(props: { name: string, className: string }) {
+export default function NFIcon(props: { name: string, className?: string }) {
     return (
-        <i className={"nf " + (icon_classes[props.name] ?? "nf-cod-question") + ` ${props.className}`}></i>
+        <i className={"nf " + (icon_classes[props.name] ?? "nf-cod-question") + ` ${props.className ?? ""}`}></i>
     )
 }

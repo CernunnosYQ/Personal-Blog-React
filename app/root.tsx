@@ -10,7 +10,7 @@ import {
 import "./tailwind.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import ErrorPage404 from "./pages/ErrorPage404";
+import Error404 from "./components/Error404";
 
 
 export const links = () => {
@@ -28,7 +28,7 @@ export function ErrorBoundary() {
   if (isRouteErrorResponse(error)) {
     switch (error.status) {
       case 404:
-        return <ErrorPage404 />
+        return <Error404 />
 
       default:
         return (
